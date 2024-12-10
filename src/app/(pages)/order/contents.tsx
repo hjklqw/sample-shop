@@ -42,10 +42,7 @@ export const OrderPageContents = () => {
 
     isCallingApi.current = true
 
-    fetchApi<OrderSuccessData>(
-      ROUTES.api.getOrder(checkoutSessionId),
-      'order data'
-    )
+    fetchApi<OrderSuccessData>(ROUTES.api.getOrder(checkoutSessionId), 'order')
       .then((res) => {
         if (res.error || !res.data) {
           setError(res.error || 'An unknown error occurred!')
@@ -57,6 +54,7 @@ export const OrderPageContents = () => {
       .finally(() => {
         setCart([])
         clearSharedSlots({})
+        isCallingApi.current = false
       })
   }, [cart, setCart, clearSharedSlots, searchParams])
 

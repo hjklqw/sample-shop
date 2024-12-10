@@ -1,3 +1,4 @@
+import { NextApiRequest } from 'next'
 import { headers } from 'next/headers'
 import { NextResponse } from 'next/server'
 
@@ -18,11 +19,11 @@ export const config = {
   },
 }
 
-export async function POST(request: Request) {
-  const body = await request.text()
+export async function POST(request: NextApiRequest) {
+  const body = await request.body()
   const requestHeaders = await headers()
   const signature = requestHeaders.get('stripe-signature') as string
-  const origin = requestHeaders.get('origin') as string
+  const origin = process.env.NEXT_PUBlIC_HOST!
 
   let event: Stripe.Event
 
