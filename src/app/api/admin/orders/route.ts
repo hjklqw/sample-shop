@@ -22,7 +22,7 @@ export async function GET() {
       },
       {
         [OrderStatus.RECEIVED]: [],
-        [OrderStatus.CUSTOMIZED]: [],
+        [OrderStatus.PROCESSING]: [],
         [OrderStatus.PACKED]: [],
         [OrderStatus.SHIPPED]: [],
       }
