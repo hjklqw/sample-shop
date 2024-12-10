@@ -1,0 +1,25 @@
+@use '@/assets/vars' as *;
+
+.cartItemActionButton {
+  @include circular(2rem);
+  display: inline-flex;
+  background: $nearBlack;
+  color: white;
+
+  &:first-child:hover {
+    background: #d4b97a;
+  }
+
+  &:last-child:hover {
+    background: $secondary;
+  }
+
+  svg {
+    stroke-width: 0.5;
+  }
+}
+
+.wrapper {
+  display: flex;
+  gap: 0.5rem;
+}

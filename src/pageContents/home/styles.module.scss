@@ -1,0 +1,38 @@
+@use '@/assets/vars' as *;
+
+.main {
+  padding-bottom: 3rem;
+
+  P {
+    text-align: center;
+  }
+}
+
+.section {
+  @include pageMainContentsWrapper;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+.collectionSection {
+  background: $nearBlack;
+  color: white;
+
+  h2 {
+    color: white !important;
+
+    svg {
+      color: white !important;
+    }
+  }
+}
+
+.categoryList {
+  @include cardList;
+
+  .categoryCard {
+    @include cardListCard;
+  }
+}

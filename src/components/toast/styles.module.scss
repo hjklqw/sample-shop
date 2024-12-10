@@ -1,0 +1,23 @@
+@use '@/assets/vars' as *;
+
+.toast {
+  z-index: 999;
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: $green;
+  padding: 1rem 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  border-radius: $borderRadius;
+  color: white;
+  box-shadow: 3px 3px 5px 1px rgb(45 57 0 / 35%);
+
+  svg {
+    flex-shrink: 0;
+    overflow: visible;
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "trailingComma": "es5",
+  "semi": false,
+  "singleQuote": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "react|next",
+    "<THIRD_PARTY_MODULES>",
+    "(@/constants)|(@/models)|(@/utils)",
+    "@/components",
+    "(?=./Icon)",
+    "./styles.module.scss",
+    "^./(.*)$"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}

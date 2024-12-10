@@ -1,0 +1,27 @@
+@use '@/assets/vars' as *;
+
+.collectionsList {
+  @include cardList;
+}
+
+.collectionCard {
+  @include cardListCard;
+
+  .numProducts {
+    font-weight: $fontWeightLight;
+    color: $nearBlack;
+    font-size: 0.8rem;
+  }
+
+  .comingSoonText {
+    font-weight: $fontWeightLight;
+    color: $nearBlack;
+  }
+
+  &.inverted {
+    .numProducts,
+    .comingSoonText {
+      color: white;
+    }
+  }
+}

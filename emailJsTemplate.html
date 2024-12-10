@@ -1,0 +1,220 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap"
+    rel="stylesheet"
+  />
+  <style type="text/css">
+    .comfortaa {
+      font-family: 'Comfortaa', sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      font-size: medium;
+      font-size: max(16px, 1rem);
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .header {
+      font-weight: 700;
+    }
+
+    .thankYouText {
+      font-size: 2.25em;
+      line-height: 1.5em;
+      display: block;
+    }
+
+    .orderId {
+      font-size: min(15vw, 3.8em);
+      margin: 1em 0;
+    }
+
+    .orderIdText {
+      display: block;
+      word-break: break-all;
+      font-size: min(10vw, 1em);
+    }
+
+    p {
+      line-height: 1.5em;
+    }
+
+    .items {
+      margin: 0 auto;
+      margin-top: 3em;
+    }
+
+    .items thead th {
+      font-weight: 700;
+    }
+
+    .items th,
+    .items td {
+      padding: 0.5em 1em;
+    }
+
+    .items tbody td {
+      text-align: center;
+    }
+
+    .items tbody td.itemtd {
+      text-align: left;
+    }
+
+    .itemName {
+      display: inline-block;
+      text-align: left;
+      padding: 0.5em;
+    }
+
+    .preorderText {
+      display: block;
+      color: #ffb302;
+      font-size: 0.8em;
+    }
+
+    .items td img {
+      vertical-align: middle;
+    }
+
+    a {
+      text-decoration: none;
+      font-weight: 700;
+      color: #a24949;
+    }
+
+    .signature {
+      margin-top: 2em;
+      text-align: right;
+    }
+
+    .signature p {
+      margin-bottom: 0.3em;
+    }
+
+    .details {
+      margin-bottom: 1em;
+    }
+    .detailsCell {
+      padding-bottom: 0;
+    }
+    .details p {
+      margin: 0;
+    }
+    .firstVariant {
+      font-weight: 600;
+    }
+
+    .footer {
+      margin-top: 1rem;
+      background: #171717;
+      padding: 0.7rem 1rem;
+    }
+
+    .footer a {
+      margin: 0 1rem;
+    }
+
+    .footer a img {
+      width: 25px;
+      height: 25px;
+    }
+  </style>
+</head>
+
+<div class="comfortaa">
+  <div class="header">
+    <div class="thankYouText">Thank you</div>
+    <div>for your order!</div>
+  </div>
+  <div class="orderId">
+    <div>Order ID:</div>
+    <div class="orderIdText">{{id}}</div>
+  </div>
+
+  <p>
+    Please save this ID for if you ever want to make changes.<br />If you have
+    any questions or comments, you can also reply directly to this email.
+  </p>
+
+  {{#needsCustomData}}
+  <p>
+    <b
+      >Since you ordered something that requires contacting me with (ex. a
+      custom design),<br />please reply to this email with the details!</b
+    >
+  </p>
+  <p>
+    If you don't have those details now, feel free to send them whenever you do.
+  </p>
+  {{/needsCustomData}} {{#serviceUsed}}
+  <p>
+    <b>Because you requested a service (ex. custom message or image),</b> you
+    should be getting a follow-up email from me within two weeks; this is for
+    you to check whether what I did properly matches what you requested. If I
+    <i>don't</i> get back to you, please reach out!
+  </p>
+  {{/serviceUsed}} {{#mixedPreorderAndRegularItems}}
+  <h2>Important reminder regarding shipping</h2>
+  <p>
+    You have both preorder and non-preorder items in this order. As written on
+    the Shipping tab of each product's description,
+    <i>all items in the same order will be shipped together</i>; the regular
+    items will not be shipped until the preorder ones are ready.
+  </p>
+  <p>
+    If this was what you intended, then great! Otherwise, please contact me ASAP
+    and I will separate the order for you.
+  </p>
+  <h2>Your order</h2>
+  {{/mixedPreorderAndRegularItems}}
+
+  <table class="items">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Details</th>
+        <th>Total quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#items}}
+      <tr>
+        <td class="itemTd">
+          <a href="{{productUrl}}">
+            <img src="{{imagePath}}" width="100" height="100" />
+            <span class="itemName">
+              {{#isPreorder}}<span class="preorderText">PREORDER</span
+              >{{/isPreorder}} {{name}}
+            </span>
+          </a>
+        </td>
+        <td class="detailsCell">{{{details}}}</td>
+        <td>{{quantity}}</td>
+      </tr>
+      {{/items}}
+    </tbody>
+  </table>
+
+  <div class="signature">
+    <p>Best,</p>
+    <a href="https://shop.michellepoon.ca/">Sample Shop</a>
+  </div>
+</div>
+
+<div class="footer comfortaa">
+  <a href="https://shop.michellepoon.ca" target="_blank"
+    ><img src="https://imgur.com/0z1Alya.png" title="Shop"
+  /></a>
+  <a href="https://michellepoon.ca/portfolio" target="_blank"
+    ><img src="https://imgur.com/ZX8UNbp.png" title="Twitter"
+  /></a>
+  <a href="https://michellepoon.ca/portfolio" target="_blank"
+    ><img src="https://imgur.com/opUzA2W.png" title="Ko-fi"
+  /></a>
+</div>

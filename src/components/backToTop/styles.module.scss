@@ -1,0 +1,29 @@
+@use '@/assets/vars' as *;
+
+.container {
+  position: fixed;
+  bottom: 3rem;
+  right: 2rem;
+  transition: all 0.3s ease-out;
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  button {
+    @include circular(3rem);
+    background: $nearBlack;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+
+    &:hover {
+      color: $primary;
+    }
+
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}

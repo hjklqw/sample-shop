@@ -1,0 +1,175 @@
+@use '@/assets/vars' as *;
+
+.pageWrapper.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.loader {
+  text-align: center;
+  font-size: 0.8rem;
+  color: $nearBlack;
+
+  p {
+    margin-top: 0;
+  }
+}
+
+.productsList table {
+  margin: 0 auto;
+
+  thead th {
+    font-weight: $fontWeightBold;
+    text-align: center;
+    border-bottom: 2px dotted $nearBlack;
+    padding: 1rem;
+  }
+
+  tbody td {
+    padding: 1rem;
+  }
+
+  .quantityCell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-weight: $fontWeightSemibold;
+  }
+
+  .priceCell {
+    justify-content: center;
+    row-gap: 0.5rem;
+
+    // Override the component's specific handling
+    @media (max-width: 345px) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  @media all and (max-width: 1000px) {
+    width: 100%;
+
+    tr {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      gap: 0.8rem;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #c5b494;
+      }
+    }
+
+    thead tr {
+      display: none;
+    }
+
+    td {
+      padding: 0 !important;
+    }
+  }
+}
+
+.product {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  .image {
+    $size: 150px;
+    width: $size;
+    height: $size;
+    position: relative;
+    background: black;
+    flex-shrink: 0;
+  }
+
+  .data {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .preorderLabel {
+      color: $primary;
+      font-size: 0.8rem;
+      margin-bottom: -0.35rem;
+      line-height: 1.2em;
+      font-weight: $fontWeightBold;
+    }
+
+    .productName {
+      font-weight: $fontWeightBold;
+      -webkit-text-stroke: 0.1px currentColor;
+    }
+
+    .variationsList {
+      font-weight: $fontWeightLight;
+      color: $nearBlack;
+      font-size: 0.83rem;
+      line-height: 1.7em;
+    }
+  }
+
+  @media all and (max-width: 1000px) {
+    justify-content: center;
+
+    .image {
+      $size: 25vw;
+      width: $size;
+      height: $size;
+    }
+  }
+
+  @media all and (max-width: 400px) {
+    flex-direction: column;
+
+    .data {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+}
+
+.editText {
+  color: $primary;
+  -webkit-text-stroke: 0.3px currentColor;
+}
+
+.checkoutSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 1200px;
+
+  .totalText {
+    font-size: 1.5rem;
+    font-weight: $fontWeightBold;
+  }
+
+  .checkoutButton {
+    padding: 1rem 2rem;
+    min-width: 250px;
+
+    &:hover svg {
+      @include link;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+.quantityInput {
+  margin-top: 1rem;
+}
+
+.vacationMessage {
+  background: $pLight;
+  padding: 1rem 1.5rem;
+  border-radius: $borderRadius;
+  text-align: right;
+}

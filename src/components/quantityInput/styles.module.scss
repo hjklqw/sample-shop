@@ -1,0 +1,59 @@
+@use '@/assets/vars' as *;
+
+.quantityInput {
+  display: inline-block;
+  width: 7rem;
+  position: relative;
+  margin-bottom: 1rem;
+
+  &.maximumHidden {
+    margin-bottom: 0;
+  }
+
+  button {
+    @include circular(2rem);
+    border: $controlBorder;
+    background: #f7f3e9;
+    position: absolute;
+    top: 0.3rem;
+    font-size: 1.2rem;
+    font-weight: $fontWeightLight;
+
+    &:first-child {
+      left: 0.3rem;
+      font-size: 1.4rem;
+    }
+
+    &:last-child {
+      right: 0.3rem;
+    }
+
+    &:not(:disabled):hover {
+      background: #ab9c81;
+      color: white;
+      font-weight: $fontWeightNormal;
+    }
+  }
+
+  input {
+    border: $controlBorder;
+    width: 100%;
+    text-align: center;
+    appearance: textfield;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      appearance: none;
+    }
+  }
+}
+
+.max {
+  position: absolute;
+  bottom: -2em;
+  display: block;
+  margin-top: 0.5em;
+  font-size: 0.8rem;
+  text-align: center;
+  width: 100%;
+}

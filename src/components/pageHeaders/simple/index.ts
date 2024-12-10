@@ -1,0 +1,1 @@
+export { SimplePageHeader } from './view'

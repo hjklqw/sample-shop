@@ -1,0 +1,1 @@
+export { CollectionsList } from './view'

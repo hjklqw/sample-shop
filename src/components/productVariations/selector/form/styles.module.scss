@@ -1,0 +1,97 @@
+@use '@/assets/vars' as *;
+
+.variantFormContainer {
+  margin-bottom: 1rem;
+
+  .header {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-weight: $fontWeightSemibold;
+    cursor: pointer;
+
+    .text {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 0.5rem;
+      row-gap: 0.2rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &:hover .checkbox {
+      background: $pLightest;
+    }
+
+    &.checked {
+      border-bottom: 3px dotted $primary;
+      padding-bottom: 0.5rem;
+
+      .variantName {
+        color: $primary;
+        -webkit-text-stroke: 0.3px currentColor;
+      }
+
+      .checkbox {
+        background: $primary;
+
+        svg {
+          color: white;
+        }
+      }
+    }
+
+    .checkbox {
+      flex-shrink: 0;
+      $size: 1.5rem;
+      flex-shrink: 0;
+      display: block;
+      width: $size;
+      height: $size;
+      border-radius: 50%;
+      background: white;
+      border: 3px dashed $primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        font-size: 0.65rem;
+        color: $primary;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+
+    label span {
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    input[type='text'] {
+      width: 100%;
+    }
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .xSlotsAvailableMessage {
+    color: $nearBlack;
+    font-weight: $fontWeightLight;
+  }
+
+  .amountLeftMessage {
+    color: $error;
+  }
+}

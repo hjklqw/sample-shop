@@ -1,0 +1,56 @@
+@use '@/assets/vars' as *;
+
+.header {
+  margin: 2rem 0;
+  color: white;
+  background: $secondary;
+  padding: 0.8rem 1.3rem;
+  border-radius: 9px;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+
+  @media all and (max-width: 500px) {
+    font-size: 1.7rem;
+
+    span {
+      transform: scale(1.5, 1) !important;
+    }
+  }
+
+  span {
+    @include headerFont;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-weight: $fontWeightBold;
+    transform: scale(1.8, 1);
+    transform-origin: 0 0;
+    display: inline-block;
+  }
+
+  svg {
+    flex-shrink: 0;
+    overflow: visible;
+  }
+
+  &.simple {
+    background: none;
+    color: $nearBlack;
+    border-bottom: 1px dashed #bbbbbb;
+    font-smooth: always;
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+
+    svg {
+      color: $nearBlack;
+    }
+
+    span {
+      transform: scale(1.65, 1);
+    }
+  }
+}

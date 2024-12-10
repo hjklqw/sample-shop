@@ -1,0 +1,37 @@
+{
+  "name": "michellepoon-shop",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emailjs/nodejs": "^4.0.4",
+    "@mailchimp/mailchimp_marketing": "^3.0.80",
+    "@stripe/react-stripe-js": "^2.7.3",
+    "@stripe/stripe-js": "^4.1.0",
+    "countries-and-timezones": "^3.6.0",
+    "jotai": "^2.10.3",
+    "mongoose": "^8.5.1",
+    "next": "15.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sass": "^1.81.1",
+    "stripe": "^16.2.0",
+    "use-debounce": "^10.0.1"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/gtag.js": "^0.0.20",
+    "@types/mailchimp__mailchimp_marketing": "^3.0.20",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "typescript": "^5"
+  }
+}

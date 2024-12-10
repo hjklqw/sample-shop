@@ -1,0 +1,82 @@
+@use '@/assets/vars' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  @include negateContentPadding;
+  margin-bottom: 5rem;
+  background: $secondary;
+  color: white;
+  padding: 5rem $pageSidePadding;
+  position: relative;
+
+  &::before {
+    @include looseCheeseBg;
+    opacity: 0.15;
+  }
+
+  h1 {
+    @include headerFont;
+    font-size: 5rem;
+    line-height: 1em;
+    text-align: center;
+    @include fauxBold;
+    -webkit-text-stroke: 1px currentColor;
+    display: flex;
+    align-items: center;
+
+    span {
+      transform: scaleX(1.2);
+      transform-origin: center;
+    }
+
+    svg {
+      margin-right: 0.15em;
+      transition: all 0.3s ease-out;
+      overflow: visible;
+    }
+
+    &:hover svg {
+      @include glow;
+    }
+  }
+
+  .description {
+    margin-top: 1rem;
+    text-align: center;
+
+    a {
+      color: $pLight;
+    }
+  }
+
+  .bottomFrame {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -35px;
+    width: 100%;
+    color: $pageBackground;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .header h1 {
+    flex-direction: column;
+    margin-top: -1rem;
+
+    svg {
+      margin-right: 0 !important;
+    }
+  }
+}
+
+@media all and (max-width: 460px) {
+  .header h1 {
+    overflow-wrap: anywhere;
+    max-width: 85%;
+    font-size: 4rem;
+  }
+}

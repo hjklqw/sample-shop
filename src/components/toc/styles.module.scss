@@ -1,0 +1,68 @@
+@use '@/assets/vars' as *;
+
+.container {
+  position: fixed;
+  bottom: 7rem;
+  right: 2rem;
+  transition: all 0.3s ease-out;
+  z-index: 998;
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .toc {
+    background: $nearBlack;
+    border-radius: $borderRadius;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+
+    .item {
+      display: flex;
+      gap: 0.6rem;
+      color: white;
+      align-items: center;
+      justify-content: flex-start;
+
+      &:hover {
+        color: $primary;
+      }
+
+      &.level-1 {
+        margin-left: 1.67rem;
+        font-size: 0.85rem;
+        opacity: 0.9;
+
+        &:not(.lastItem) {
+          margin-bottom: -0.2rem;
+        }
+      }
+    }
+  }
+
+  .mobileMenuButton {
+    @include circular(3rem);
+    background: $nearBlack;
+    color: white;
+    display: none;
+  }
+
+  @media all and (max-width: 1100px) {
+    .toc {
+      display: none;
+
+      &.isShowingMobile {
+        display: block;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .mobileMenuButton {
+      display: flex;
+      margin-left: auto;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.addToCartSection {
+  label {
+    display: block;
+    margin-bottom: 2rem;
+
+    span {
+      padding-right: 0.6rem;
+    }
+  }
+
+  .soldOutButton {
+    width: 100%;
+  }
+
+  .restockMessage {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+  }
+
+  .buttonContainer {
+    display: flex;
+    gap: 1rem;
+
+    .removeFromCartButton {
+      width: 100%;
+    }
+  }
+}

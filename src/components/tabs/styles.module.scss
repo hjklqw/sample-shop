@@ -1,0 +1,54 @@
+@use '@/assets/vars' as *;
+
+.tabNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-weight: $fontWeightBold;
+
+  & > span {
+    padding: 0.5rem 0;
+    border-bottom: 3px solid $nearBlack;
+    cursor: pointer;
+
+    &.selected {
+      -webkit-text-stroke: 0.3px currentColor;
+      color: $primary;
+      border-bottom-color: $primary;
+    }
+  }
+}
+
+.tabContents {
+  margin-top: 3rem;
+
+  a {
+    color: $secondary;
+    font-weight: $fontWeightSemibold;
+  }
+}
+
+.faqSection {
+  .faqEntry {
+    margin-bottom: 1.5rem;
+
+    .question {
+      font-weight: $fontWeightBold;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+
+      svg {
+        color: $nearBlack;
+        font-size: 1.2em;
+        flex-shrink: 0;
+      }
+    }
+
+    .answer {
+      margin-top: 0.5rem;
+      margin-left: calc(19.2px + 0.5rem);
+    }
+  }
+}

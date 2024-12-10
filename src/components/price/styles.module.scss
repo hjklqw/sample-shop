@@ -1,0 +1,65 @@
+@use '@/assets/vars' as *;
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+
+  &.usingSaleText {
+    margin-top: -2rem;
+
+    .salePrice {
+      margin-top: 2rem;
+    }
+  }
+
+  & > span {
+    display: inline-block;
+    position: relative;
+    flex-grow: 0;
+
+    &.crossedOut {
+      color: $nearBlack;
+      opacity: 0.6;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: black;
+        top: 45%;
+      }
+    }
+  }
+
+  .salePrice {
+    color: $green;
+    font-weight: $fontWeightBold;
+  }
+}
+
+.saleText {
+  color: $green;
+  margin-bottom: 0.5rem;
+  font-weight: $fontWeightBold;
+  position: absolute;
+  top: -2rem;
+  font-size: 0.7rem;
+  white-space: pre;
+  line-height: 1.2em;
+}
+
+@media all and (max-width: 345px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+
+    &.usingSaleText {
+      margin-top: -1rem;
+    }
+  }
+}

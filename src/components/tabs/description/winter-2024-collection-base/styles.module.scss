@@ -1,0 +1,157 @@
+@use '@/assets/vars' as *;
+
+.wrapper {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.collectionSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    a {
+      display: block;
+      font-size: 0.75rem;
+      color: $secondary;
+    }
+
+    img {
+      opacity: 0.8;
+    }
+
+    &.currentItem {
+      & > span {
+        font-weight: $fontWeightBold;
+        font-size: 1.2rem;
+      }
+
+      img {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.note {
+  font-weight: $fontWeightLight;
+  color: $nearBlack;
+}
+
+.designCardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.designCard {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  $cardBorderRadius: 1.7rem;
+
+  .title {
+    $numberSize: 5rem;
+
+    font-size: 2rem;
+    padding: 1.2rem 2rem;
+    border: 3.5px dashed $secondary;
+    border-radius: $cardBorderRadius;
+    position: relative;
+    font-weight: $fontWeightBold;
+    max-width: calc(100% - $numberSize);
+    text-align: center;
+    line-height: 1.2em;
+    margin-right: -($numberSize / 2);
+
+    .number {
+      width: $numberSize;
+      height: $numberSize;
+      position: absolute;
+      background: $secondary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: white;
+      top: -2rem;
+      left: -3rem;
+      -webkit-text-stroke: 0.3px currentColor;
+    }
+  }
+
+  .frontText,
+  .backText {
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    line-height: 1.2em;
+    color: white;
+    margin: 0;
+    display: flex;
+    align-self: stretch;
+    gap: 1rem;
+
+    .label {
+      -webkit-text-stroke: 0.2px currentColor;
+    }
+  }
+
+  .frontText {
+    border-top-right-radius: $cardBorderRadius;
+    border-top-left-radius: $borderRadius;
+    margin-bottom: 0.1rem;
+    margin-top: 2rem;
+    background: $secondary;
+  }
+
+  .backText {
+    border-bottom-right-radius: $borderRadius;
+    border-bottom-left-radius: $cardBorderRadius;
+    background: $nearBlack;
+
+    a {
+      color: $primary;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .title {
+      font-size: 1.5rem;
+      max-width: calc(100% - 3rem);
+      padding: 1rem 1.2rem;
+
+      .number {
+        width: 4rem;
+        height: 4rem;
+        left: -2.5rem;
+      }
+    }
+
+    .frontText,
+    .backText {
+      padding: 1.2rem;
+      font-size: 1.05rem;
+      line-height: 1.2em;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+}

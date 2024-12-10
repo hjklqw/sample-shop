@@ -1,0 +1,49 @@
+@use '@/assets/vars' as *;
+
+.pageLayout {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+
+  & > header {
+    position: absolute;
+    top: -3.8rem;
+    left: 18%;
+
+    img {
+      cursor: pointer;
+      z-index: 3;
+    }
+  }
+
+  .contents {
+    @include pageMainContentsWrapper;
+  }
+
+  @media all and (max-width: 1976px) {
+    & > header {
+      left: 2rem;
+    }
+  }
+
+  @media all and (max-width: $mobileNavBreakpoint) {
+    & > header {
+      transform: scale(0.9);
+    }
+  }
+
+  @media all and (max-width: 270px) {
+    & > header {
+      transform: unset;
+      max-width: 38px;
+      overflow: hidden;
+      top: -3.15rem;
+      left: 1.5rem;
+
+      span {
+        display: none;
+      }
+    }
+  }
+}

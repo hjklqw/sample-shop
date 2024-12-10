@@ -1,0 +1,55 @@
+@use '@/assets/vars' as *;
+
+.error {
+  background: $secondary;
+  color: white;
+  padding: 1rem;
+  width: auto;
+  border-radius: $borderRadius;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+
+  svg {
+    margin-top: 0.1rem;
+    color: white;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  p {
+    margin: 0;
+
+    &:first-child {
+      font-weight: $fontWeightBold;
+    }
+
+    &.soundsWeirdLine {
+      font-size: 0.8rem;
+    }
+  }
+
+  &.noWrapper {
+    display: inline-flex;
+    transform: translateX(-50%);
+    margin-left: 50%;
+    margin-top: 18.5%;
+  }
+
+  @media all and (max-width: 450px) {
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      text-align: center;
+    }
+
+    &.noWrapper {
+      width: 90%;
+    }
+  }
+}

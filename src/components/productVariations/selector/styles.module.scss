@@ -1,0 +1,109 @@
+@use '@/assets/vars' as *;
+
+.productVariationsSelectionSection {
+  & > header {
+    margin-bottom: 3rem;
+    padding: 0.5rem 0;
+    border-bottom: 3px dotted $nearBlack;
+    font-weight: $fontWeightBold;
+    -webkit-text-stroke: 0.3px currentColor;
+
+    // brekapoint from product\[slug] page
+    @media all and (max-width: 1100px) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  article.variant {
+    &:not(.form) {
+      margin-bottom: 1rem;
+    }
+
+    .variantName {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: $fontWeightSemibold;
+
+      &.quantityLabel {
+        display: inline-block;
+        margin-bottom: 0;
+        margin-right: 0.7rem;
+      }
+    }
+
+    input[type='text'],
+    input[type='number'] {
+      border: 1px solid #ab9c81;
+    }
+  }
+}
+
+// Note that there is button.option and div.option
+.buttonList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  button {
+    padding: 0.6rem 0.9rem;
+    font-size: inherit;
+    position: relative;
+    background: $pLightest;
+    font-weight: $fontWeightSemibold;
+    color: $nearBlack;
+    border: 1px solid #e2bc60;
+    min-height: 50.4px;
+    flex-direction: column;
+    gap: 0.15rem;
+
+    &.selected {
+      border: 3px dashed $primary;
+      color: #f99e00;
+      font-weight: $fontWeightBold;
+    }
+
+    &:not(:disabled):hover {
+      background: $pLight;
+    }
+
+    .amountLeftMessage {
+      display: block;
+      font-size: 0.6rem;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+}
+
+.toggle {
+  gap: 0;
+
+  button {
+    $radius: 1rem;
+    border-radius: 0;
+
+    &:first-child {
+      border-top-left-radius: $radius;
+      border-bottom-left-radius: $radius;
+    }
+
+    &:last-child {
+      border-top-right-radius: $radius;
+      border-bottom-right-radius: $radius;
+
+      &:not(.selected) {
+        border-left: 0;
+      }
+    }
+  }
+}
+
+.subVariantContainer {
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}

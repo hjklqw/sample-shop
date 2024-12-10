@@ -1,0 +1,65 @@
+@use '@/assets/vars' as *;
+
+.productsList {
+  @include cardList;
+}
+
+@mixin sticker {
+  $size: 50px;
+  background: $green;
+  border-radius: 50%;
+  width: $size;
+  height: $size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: $fontWeightBold;
+  color: white;
+  line-height: 1.2em;
+  padding-top: 0.25em;
+}
+
+.productCard {
+  @include cardListCard;
+
+  .stickerContainer {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    gap: 1rem;
+
+    .saleSticker {
+      @include sticker;
+    }
+
+    .soldOutSticker {
+      @include sticker;
+      background: $secondary;
+    }
+  }
+
+  .preorderLabel {
+    display: block;
+    color: $primary;
+  }
+
+  .category {
+    font-weight: $fontWeightLight;
+    color: $nearBlack;
+    font-size: 0.8rem;
+  }
+
+  .price {
+    justify-content: center;
+
+    // Override the component's specific handling
+    @media (max-width: 345px) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}

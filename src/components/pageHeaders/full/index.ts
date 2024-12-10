@@ -1,0 +1,1 @@
+export { FullPageHeader } from './view'

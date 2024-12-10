@@ -1,0 +1,25 @@
+@use '@/assets/vars' as *;
+
+.button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-weight: $fontWeightBold;
+  min-height: 50.4px;
+
+  svg {
+    font-size: 1.2rem;
+    stroke-width: 0.5;
+  }
+
+  &:not(:disabled):hover {
+    box-shadow: inset 800px 0 0 0 black !important;
+
+    svg {
+      @include link;
+      animation-iteration-count: 2;
+    }
+  }
+}

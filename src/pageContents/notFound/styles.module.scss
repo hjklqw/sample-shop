@@ -1,0 +1,16 @@
+#pageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+
+  h1 {
+    font-size: 6rem;
+  }
+
+  p {
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+}

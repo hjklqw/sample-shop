@@ -1,0 +1,429 @@
+@use '@/assets/vars.scss' as *;
+
+.globalLayout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  & > header {
+    .topBar {
+      background: black;
+      position: relative;
+      color: white;
+      padding: 0.5rem 0;
+      height: 2rem;
+
+      .shopName {
+        transform: rotate(350deg);
+        display: inline-block;
+        z-index: 1;
+        position: absolute;
+        font-size: 2rem;
+        line-height: 1.2em;
+        top: -0.3rem;
+        transition: transform 0.2s cubic-bezier(0.09, 0.41, 0.19, 0.82);
+
+        &:hover {
+          animation: unset;
+          color: currentColor;
+          transform: rotate(340deg);
+        }
+      }
+    }
+
+    .bottomBar {
+      background: $primary;
+      position: relative;
+      padding-top: 3rem;
+      padding-bottom: 1.35rem;
+
+      &::before {
+        @include looseCheeseBg;
+      }
+    }
+
+    .headerContents {
+      @include maxContentWidth;
+      position: relative;
+    }
+
+    .mobileMenuButton {
+      display: none;
+      text-align: right;
+      cursor: pointer;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-weight: $fontWeightBold;
+      color: $nearBlack;
+
+      a {
+        -webkit-text-stroke: 0.35px currentColor;
+      }
+    }
+  }
+
+  .cartButton {
+    position: absolute;
+    right: 5rem;
+    font-size: 1.5rem;
+    background: $pLight;
+    margin-top: -1rem;
+    @include circular(50px);
+
+    &:hover {
+      color: $green;
+
+      .numItemsIndicator {
+        background: $green;
+      }
+    }
+
+    svg {
+      stroke-width: 0.5;
+    }
+
+    .numItemsIndicator {
+      @include circular(15px);
+      background: $secondary;
+      position: absolute;
+      top: -1px;
+      right: 2px;
+      font-size: 0.55rem;
+      color: white;
+      font-weight: 500;
+    }
+  }
+
+  .mobileCartLink {
+    display: none;
+  }
+
+  main {
+    flex: 1;
+    background: $pageBackground;
+  }
+
+  & > footer {
+    background: $black;
+    color: white;
+
+    & > div {
+      display: flex;
+      max-width: 990px;
+      margin: 0 auto;
+      justify-content: center;
+    }
+
+    .divider {
+      border-right: 1px solid #4c4c4c;
+      margin: 2rem 0;
+    }
+
+    .mailingList {
+      padding: 2rem;
+      max-width: 80vw;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      .message {
+        font-size: 0.95rem;
+        line-height: 1.2rem;
+        text-align: center;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .controls {
+        flex-shrink: 0;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+
+        & > div:first-child {
+          display: inline-flex;
+          flex: 1;
+          justify-content: center;
+        }
+
+        &.error {
+          animation: buzzt 0.5s;
+
+          input {
+            background: #e6b9b9;
+          }
+
+          button {
+            background: $error;
+            color: white;
+          }
+        }
+      }
+
+      input {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        min-width: 190px;
+        max-width: 190px;
+
+        &:disabled {
+          background: #cdcdcd;
+        }
+      }
+
+      button {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+
+        .mobileSubmitIcon {
+          display: none;
+        }
+
+        .loader {
+          margin-left: 0.5rem;
+          vertical-align: text-top;
+        }
+      }
+
+      .subscriptionMessage {
+        text-align: center;
+        font-weight: 700;
+        background: #b6ef82;
+        color: $nearBlack;
+        padding: 0.5rem;
+        border-radius: $borderRadius;
+
+        svg {
+          color: $pLight;
+          vertical-align: middle;
+          @include glow;
+        }
+      }
+
+      .errorMessage {
+        color: $error;
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+        max-width: 320px;
+
+        svg {
+          font-size: 1.5em;
+          margin-right: 0.4rem;
+          vertical-align: text-top;
+        }
+      }
+    }
+
+    .social {
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-width: 110px;
+      max-width: 110px;
+      font-size: 1.5rem;
+      flex-grow: 0;
+      flex-shrink: 0;
+      box-sizing: initial !important;
+    }
+
+    .copyright {
+      background: black;
+      color: $faintAgainstBlack;
+      font-size: 0.8rem;
+      padding: 0.6rem 1rem;
+      letter-spacing: 0.05em;
+      text-align: center;
+    }
+  }
+
+  @media all and (max-width: 955px) {
+    & > footer {
+      & > div:first-child {
+        flex-direction: column;
+
+        .mailingList {
+          max-width: unset;
+          text-align: center;
+
+          .controls {
+            justify-content: center;
+            flex: 1;
+            width: 100%;
+          }
+        }
+
+        .divider {
+          display: none;
+        }
+
+        .social {
+          padding-top: 0;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 950px) {
+    & > header {
+      nav {
+        justify-content: flex-end;
+
+        .cartButton {
+          position: unset;
+          right: unset;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: $mobileNavBreakpoint) {
+    & > header {
+      .mobileButtonContainer {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+        font-size: 1.3rem;
+      }
+
+      .mobileMenuButton {
+        display: block;
+      }
+
+      .mobileCartLink {
+        display: block;
+
+        svg {
+          stroke-width: 0.5;
+        }
+      }
+
+      nav {
+        position: absolute;
+        top: 2.8rem;
+        align-items: center;
+        justify-content: flex-end;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        background: $pLight;
+        display: none;
+        gap: 0;
+        padding: 0 1rem;
+
+        a {
+          padding: 0.7rem;
+          -webkit-text-stroke: unset;
+
+          &:last-child {
+            display: none;
+          }
+        }
+
+        &.open {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 400px) {
+    & > header nav {
+      flex-direction: column;
+    }
+  }
+
+  @media all and (max-width: 380px) {
+    & > header .topBar .shopName {
+      transform: rotate(350deg) scale(0.8);
+      margin-left: -2rem;
+      margin-top: -1.4rem;
+    }
+  }
+
+  @media all and (max-width: 750px) {
+    & > footer .mailingList {
+      flex-direction: column;
+
+      .controls {
+        flex-shrink: 1;
+        max-width: 100%;
+
+        & > div:first-child {
+          display: flex;
+        }
+
+        input {
+          min-width: 0;
+          flex: 1;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 400px) {
+    & > footer {
+      .mailingList {
+        padding: 2rem 1.5rem;
+
+        .controls {
+          input {
+            max-width: 60vw;
+          }
+
+          button {
+            padding: 0.8rem 1rem;
+
+            .mobileSubmitIcon {
+              display: block;
+
+              path {
+                transition: stroke 0.3s ease-out;
+              }
+            }
+            span {
+              display: none;
+            }
+
+            &:hover svg path {
+              stroke: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes buzzt {
+  0%,
+  10%,
+  20%,
+  30%,
+  40%,
+  50%,
+  60%,
+  70%,
+  80%,
+  90%,
+  100% {
+    transform: translateX(-5px);
+  }
+  5%,
+  15%,
+  25%,
+  35%,
+  45%,
+  55%,
+  65%,
+  75%,
+  85%,
+  95% {
+    transform: translateX(5px);
+  }
+}

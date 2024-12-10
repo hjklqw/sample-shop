@@ -1,0 +1,13 @@
+@use '@/assets/vars' as *;
+
+.header {
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #bbbbbb;
+  line-height: 1.2em;
+  @include headerFont;
+  font-size: 4rem;
+  font-weight: 700;
+}

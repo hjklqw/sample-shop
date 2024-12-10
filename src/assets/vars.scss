@@ -1,0 +1,199 @@
+$primary: #ffb302;
+$pLight: #ffdf93;
+$pLightest: #ffecbe;
+$secondary: #a24949;
+$black: #171717;
+$nearBlack: #383227;
+$faintAgainstBlack: #afafaf;
+$error: #ff2424;
+$pageBackground: #fdfaf4;
+$green: #8bb200;
+
+$disabledBg: #c0beba;
+$disabledText: #6f6d67;
+
+$controlBackgroundFocus: #fdefcf;
+$controlBorder: 1px solid #ab9c81;
+$borderRadius: 8px;
+
+$mobileNavBreakpoint: 750px;
+
+$fontWeightLight: 300;
+$fontWeightNormal: 400;
+$fontWeightSemibold: 600;
+$fontWeightBold: 900;
+
+@mixin circular($size) {
+  border-radius: 50%;
+  width: $size;
+  height: $size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+@mixin headerFont {
+  font-family: var(--font-header);
+}
+
+@mixin fauxBold($thickness: 1px) {
+  text-shadow: $thickness 0 0 currentColor;
+}
+
+@mixin outsideStroke($color) {
+  text-shadow:
+    -1px -1px 0 $color,
+    0 -1px 0 $color,
+    1px -1px 0 $color,
+    1px 0 0 $color,
+    1px 1px 0 $color,
+    0 1px 0 $color,
+    -1px 1px 0 $color,
+    -1px 0 0 $color;
+}
+
+@mixin glow($blur: 5px) {
+  filter: drop-shadow(0px 0px $blur rgba(255, 179, 2, 1));
+}
+
+$pageSidePadding: 10vw;
+
+@mixin pageMainContentsWrapper {
+  padding: 5rem $pageSidePadding;
+  flex: 1;
+}
+
+@mixin negatePageSidePadding {
+  margin: 0 -#{$pageSidePadding};
+}
+
+@mixin negateContentPadding {
+  @include negatePageSidePadding;
+  margin-top: -5rem;
+}
+
+@mixin maxContentWidth {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 5rem;
+
+  @media all and (max-width: $mobileNavBreakpoint) {
+    padding: 0 2rem;
+  }
+}
+
+@mixin looseCheeseBg {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.2;
+  pointer-events: none;
+  background: url('/cheese-bg-loose.png');
+}
+
+@mixin link {
+  &.icon {
+    animation: iconRing 0.5s;
+  }
+
+  &:not(.icon) {
+    &:not(.smallAnim) {
+      animation: textRing 0.8s;
+    }
+    font-weight: 700;
+  }
+
+  &.smallAnim {
+    animation: smallRing 0.7s;
+  }
+}
+
+$iconDegrees: 5;
+$iconScale: 1.1;
+@keyframes iconRing {
+  0%,
+  30% {
+    transform: rotate(-#{$iconDegrees}deg) scale(#{$iconScale});
+  }
+  15%,
+  50%,
+  90% {
+    transform: rotate(#{$iconDegrees + 2}deg) scale(#{$iconScale});
+  }
+  100% {
+    transform: rotate(0), scale(0);
+  }
+}
+
+$textDegrees: 2;
+$textScale: 1.05;
+@keyframes textRing {
+  0%,
+  25% {
+    transform: rotate(-#{$textDegrees}deg) scale(#{$textScale})
+      translate(-1px, -2px);
+  }
+  12.5%,
+  37.5%,
+  80% {
+    transform: rotate(#{$textDegrees + 2}deg) scale(#{$textScale});
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+$smallDegrees: 0.1;
+$smallScale: 1.005;
+@keyframes smallRing {
+  0%,
+  25% {
+    transform: rotate(-#{$smallDegrees}deg) scale(#{$smallScale});
+  }
+  12.5%,
+  37.5%,
+  80% {
+    transform: rotate(#{$smallDegrees + 2}deg) scale(#{$smallScale});
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@mixin cardList {
+  display: flex;
+  gap: 5vw;
+  row-gap: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@mixin cardListCard {
+  max-width: 100%;
+  text-align: center;
+
+  .image {
+    $size: 350px;
+    width: $size;
+    height: auto;
+    position: relative;
+    background: white;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  .name {
+    display: block;
+    font-weight: $fontWeightBold;
+    margin-top: 1rem;
+  }
+}

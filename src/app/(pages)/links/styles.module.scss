@@ -1,0 +1,95 @@
+@use '@/assets/vars' as *;
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section {
+  a {
+    margin-bottom: 1rem;
+
+    svg {
+      margin-bottom: 0.1rem;
+    }
+  }
+}
+
+.largeLink {
+  display: block;
+
+  article {
+    border: 3px dashed $primary;
+    border-radius: $borderRadius;
+    padding: 2rem;
+    cursor: pointer;
+    background: $pLightest;
+    transition: all 0.25s linear;
+
+    h2 {
+      display: inline-flex;
+      gap: 1rem;
+      align-items: flex-end;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  &:hover {
+    color: white;
+
+    article {
+      background: $black;
+      border-style: solid;
+    }
+  }
+
+  &.compact {
+    article {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      border-width: 1.5px;
+
+      h2,
+      p {
+        margin: 0;
+      }
+
+      h2 {
+        font-size: 1.1rem;
+        align-items: center;
+        gap: 0.7rem;
+        flex-wrap: nowrap;
+        white-space: pre;
+
+        svg {
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    &:hover {
+      animation: none !important;
+    }
+  }
+}
+
+@media all and (max-width: 485px) {
+  .largeLink.compact article {
+    flex-direction: column;
+    gap: 1rem;
+
+    p {
+      text-align: center;
+    }
+  }
+}
+
+.footnote {
+  font-size: 0.8rem;
+  color: gray;
+}

@@ -1,0 +1,1 @@
+export { ShopName } from './view'

@@ -1,0 +1,57 @@
+@use '@/assets/vars' as *;
+
+.modal {
+  $padding: 1rem 2.5rem;
+  padding: 0;
+
+  border: none;
+  background: $pageBackground;
+  border-radius: $borderRadius;
+
+  .header,
+  .body,
+  .buttons {
+    padding: $padding;
+  }
+
+  .header {
+    background: $nearBlack;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7em;
+  }
+
+  .buttons {
+    padding-bottom: 2rem;
+    padding-top: 0;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    button {
+      flex: 1;
+      font-weight: $fontWeightSemibold;
+      min-height: 50.4px;
+      min-width: 169px;
+    }
+  }
+
+  &::backdrop {
+    background: gray;
+    opacity: 0.5;
+  }
+
+  @media all and (max-width: 500px) {
+    &.mobileFullScreen {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: unset;
+    }
+  }
+}
