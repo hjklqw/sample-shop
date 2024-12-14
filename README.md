@@ -44,13 +44,13 @@ This is a clone of a live, low traffic, small-business e-commerce site that has 
 
 ### Directory structure
 
-`/app` - Contains all the page routes, structured as Next.js requires.
-`/components` - All share components that are used in multiple places throughout the app.
-`/constants` - Same as above, but for constants.
-`/models` - Stores types (interfaces, enums, etc.) that are used by the database, state, and expected api responses. These are also shared; types that are local to a certain component will be written in that component.
-`/pageContents` - Essentially strips out what's inside the app directory for a cleaner browsing experience. This is currently mainly for more complex pages, where there are multiple sub-folders, icons, etc., but should technically be used for all pages to clean up the app directory and leave it only responsible for routing.
-`/state` - Contains all state-related atoms and providers.
-`/utils` - Shared utility functions used in multiple places. It is currently not split between API, client, and independent utils, but the filenames and/or JSDoc comments make clear where they are intended to be used.
+- `/app` - Contains all the page routes, structured as Next.js requires.
+- `/components` - All share components that are used in multiple places throughout the app.
+- `/constants` - Same as above, but for constants.
+- `/models` - Stores types (interfaces, enums, etc.) that are used by the database, state, and expected api responses. These are also shared; types that are local to a certain component will be written in that component.
+- `/pageContents` - Essentially strips out what's inside the app directory for a cleaner browsing experience. This is currently mainly for more complex pages, where there are multiple sub-folders, icons, etc., but should technically be used for all pages to clean up the app directory and leave it only responsible for routing.
+- `/state` - Contains all state-related atoms and providers.
+- `/utils` - Shared utility functions used in multiple places. It is currently not split between API, client, and independent utils, but the filenames and/or JSDoc comments make clear where they are intended to be used.
 
 ### Database notes
 
